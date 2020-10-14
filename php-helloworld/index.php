@@ -1,4 +1,3 @@
 <?php
-$hello_person = $_SERVER["HELLO_PERSON"];
-print "Hello, $hello_person php version is " . PHP_VERSION . "\n";
+print 'My username is ' .$_ENV["HELLO_PERSON"] . '!';
 ?>
