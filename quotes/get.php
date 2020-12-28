@@ -6,17 +6,6 @@
 	die();
     }
 
-    // sql to create table
-    $sql = "CREATE TABLE quote (
-    id int,
-    msg varchar(255)
-    )";
-
-    if ($link->query($sql) === TRUE) {
-      echo "Table quote created successfully";
-    } else {
-      echo "Error creating table: " . $link->error;
-    }
 
     $query = "SELECT count(*) FROM quote";
     $result = $link->query($query);
