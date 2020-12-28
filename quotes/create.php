@@ -7,7 +7,7 @@
     }
 
     // sql to create table
-    $sql = "CREATE TABLE quote (
+    $sql = "CREATE TABLE IF NOT EXISTS quote (
     id int,
     msg varchar(255)
     )";
