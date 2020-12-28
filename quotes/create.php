@@ -17,6 +17,38 @@
     } else {
       echo "Error creating table: " . $link->error;
     }
-    
+
+    $sql = "INSERT INTO quote (id, msg) VALUES ('1', 'hola caracola')";
+
+    if ($link->query($sql) === TRUE) {
+      echo "New record created successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . $clink->error;
+    }
+
+    $sql = "INSERT INTO quote (id, msg) VALUES ('2', 'hola mundo')";
+
+    if ($link->query($sql) === TRUE) {
+      echo "New record created successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . $clink->error;
+    }
+
+    $sql = "INSERT INTO quote (id, msg) VALUES ('3', 'adios caracola')";
+
+    if ($link->query($sql) === TRUE) {
+      echo "New record created successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . $clink->error;
+    }
+
+    $sql = "INSERT INTO quote (id, msg) VALUES ('4', 'adios mundo')";
+
+    if ($link->query($sql) === TRUE) {
+      echo "New record created successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . $clink->error;
+    }
+ 
     mysqli_close($link);
 ?>
