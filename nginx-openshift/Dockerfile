@@ -2,14 +2,19 @@ FROM nginx
 
 EXPOSE 8080
 
-LABEL io.k8s.description="A basic Apache HTTP Server child image, uses ONBUILD" \
-      io.k8s.display-name="Apache HTTP Server" \
+ENV PYTHON_VERSION=3.6 \
+    PATH=$HOME/.local/bin/:$PATH \
+
+LABEL io.k8s.display-name="Python 3.6" \
       io.openshift.expose-services="8080:http" \
-      io.openshift.tags="apache, httpd"
 
-RUN sed -i "s/listen       80/listen       8080/g" /etc/nginx/conf.d/default.conf
 
-RUN chgrp -R 0 /etc/nginx /var/cache/nginx /var/run/nginx.pid && \
-    chmod -R g=u /etc/nginx /var/cache/nginx /var/run/nginx.pid
+RUN INSTALL_PKGS="python36" && \
+    yum -y module enable python36:3.6 && \
+    yum -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
+    rpm -V $INSTALL_PKGS && \
+    yum -y clean all --enablerepo='*'
 
 USER 1001
+
+CMD sleep 3600
