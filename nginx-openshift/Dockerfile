@@ -17,4 +17,4 @@ COPY clock.py /app
 
 USER 1001
 
-CMD python3 /app/clock.py
+CMD sleep 3600
