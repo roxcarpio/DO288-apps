@@ -1,2 +1,2 @@
 # Use the httpd-parent image as base
-FROM quay.io/redhattraining/httpd-parent
+FROM roxcarpio/http-parent:0.1
