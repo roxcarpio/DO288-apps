@@ -1,7 +1,7 @@
 import time
 import logging
 
-logging.basicConfig(filename="newfile.log",
+logging.basicConfig(filename="/app/newfile.log",
                     format='%(asctime)s %(message)s',
                     filemode='w')
 
