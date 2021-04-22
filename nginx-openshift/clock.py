@@ -1,9 +1,9 @@
 import time
 import logging
+import sys
 
-logging.basicConfig(filename="/app/newfile.log",
-                    format='%(asctime)s %(message)s',
-                    filemode='w')
+logging.basicConfig(stream=sys.stdout,
+                    format='%(asctime)s %(message)s' )
 
 logger=logging.getLogger()
 logger.setLevel(logging.DEBUG)
