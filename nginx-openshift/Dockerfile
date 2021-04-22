@@ -18,4 +18,4 @@ RUN   chgrp -R 0 /app && \
 
 USER 1001
 
-CMD python /app/clock.py
+CMD python3 /app/clock.py
