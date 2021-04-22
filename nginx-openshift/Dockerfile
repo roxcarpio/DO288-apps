@@ -13,6 +13,8 @@ RUN yum -y update && \
     yum -y install python36 && \
     yum -y clean all --enablerepo='*'
 
+COPY clock.py /app
+
 USER 1001
 
-CMD sleep 3600
+CMD python3 clock.py
