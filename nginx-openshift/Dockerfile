@@ -9,7 +9,7 @@ LABEL io.k8s.display-name="Python 3.6" \
       io.openshift.expose-services="8080:http"
 
 
-RUN yum update -y \
+RUN yum update -y && \
     yum -y install python36 && \
     yum -y clean all --enablerepo='*'
 
