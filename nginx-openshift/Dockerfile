@@ -1,12 +1,10 @@
 FROM registry.access.redhat.com/ubi8/ubi:8.0
 
-EXPOSE 8080
-
 ENV PYTHON_VERSION=3.6 \
     PATH=$HOME/.local/bin/:$PATH
 
-LABEL io.k8s.display-name="Python 3.6" \
-      io.openshift.expose-services="8080:http"
+LABEL io.openshift.tags="python,clock" \
+      io.k8s.description="Clock done in Python"
 
 
 RUN yum -y update && \
@@ -15,6 +13,9 @@ RUN yum -y update && \
 
 COPY clock.py /app/clock.py
 
+RUN   chgrp -R 0 /app && \
+      chmod -R g=u /app
+
 USER 1001
 
-CMD sleep 3600
+CMD python /app/clock.py
