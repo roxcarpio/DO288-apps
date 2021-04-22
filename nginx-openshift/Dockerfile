@@ -3,16 +3,14 @@ FROM registry.access.redhat.com/ubi8/ubi:8.0
 EXPOSE 8080
 
 ENV PYTHON_VERSION=3.6 \
-    PATH=$HOME/.local/bin/:$PATH 
+    PATH=$HOME/.local/bin/:$PATHyum -y module enable python36:3.6  
 
 LABEL io.k8s.display-name="Python 3.6" \
       io.openshift.expose-services="8080:http"
 
 
-RUN INSTALL_PKGS="python36" && \
-    yum -y module enable python36:3.6 && \
-    yum -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
-    rpm -V $INSTALL_PKGS && \
+RUN yum update -y \
+    yum -y install python36 && \
     yum -y clean all --enablerepo='*'
 
 USER 1001
