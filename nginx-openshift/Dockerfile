@@ -9,7 +9,7 @@ LABEL io.k8s.description="A basic Apache HTTP Server child image, uses ONBUILD" 
 
 RUN sed -i "s/listen       80/listen       8080/g" /etc/nginx/conf.d/default.conf
 
-RUN chgrp -R 0 /etc/nginx /var/cache/nginx && \
-    chmod -R g=u /etc/nginx /var/cache/nginx
+RUN chgrp -R 0 /etc/nginx /var/cache/nginx /var/run/ && \
+    chmod -R g=u /etc/nginx /var/cache/nginx /var/run/
 
 USER 1001
